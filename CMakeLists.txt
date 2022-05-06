@@ -24,7 +24,10 @@ include_directories( ${Sophus_INCLUDE_DIRS} )
 find_package( G2O REQUIRED )
 include_directories( ${G2O_INCLUDE_DIRS} )
 
-set( THIRD_PARTY_LIBS  ${OpenCV_LIBS})
+set( THIRD_PARTY_LIBS  
+     ${OpenCV_LIBS}
+     ${Sophus_LIBRARIES}
+     g2o_core g2o_stuff g2o_types_sba)
 
 ############### dependencies ######################
 include_directories( ${PROJECT_SOURCE_DIR}/include )

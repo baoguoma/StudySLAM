@@ -1,8 +1,8 @@
 #ifndef FRAME_HEAD
 #define FRAME_HEAD
 
-#include "myslam/camera.h"
-#include "myslam/common_include.h"
+#include "studyslam/camera.h"
+#include "studyslam/common_include.h"
 
 namespace studyslam {
 class MapPoint;

@@ -1,5 +1,7 @@
 #include "studyslam/camera.hpp"
 
+#include "studyslam/config.hpp"
+
 namespace studyslam {
 Camera::Camera() {
   fx_ = Config::get<float>("camera.fx");

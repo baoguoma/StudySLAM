@@ -50,10 +50,10 @@ void Frame::setPose(const SE3& T_w2c) { T_w2c_ = T_w2c; }
 Vector3d Frame::getCamCenter() const { return T_w2c_.inverse().translation(); }
 
 bool Frame::isInFrame(const Vector3d& pt_world) {
-  Vector3d p_cam = sh_ptr_camera_->world2camera(pt_world, T_w2c);
+  Vector3d p_cam = sh_ptr_camera_->world2camera(pt_world, T_w2c_);
   // cout<<"P_cam = "<<p_cam.transpose()<<endl;
   if (p_cam(2, 0) < 0) return false;
-  Vector2d pixel = sh_ptr_camera_->world2pixel(pt_world, T_w2c);
+  Vector2d pixel = sh_ptr_camera_->world2pixel(pt_world, T_w2c_);
   // cout<<"P_pixel = "<<pixel.transpose()<<endl<<endl;
   return pixel(0, 0) > 0 && pixel(1, 0) > 0 && pixel(0, 0) < mat_color_.cols &&
          pixel(1, 0) < mat_color_.rows;

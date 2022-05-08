@@ -21,7 +21,7 @@ class Config {
   static T get(const std::string& key) {
     return T(Config::config_ptr->file_[key]);
   }
-}
+};
 }  // namespace studyslam
 
 #endif

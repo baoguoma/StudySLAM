@@ -3,7 +3,7 @@
 
 #include "studyslam/common_include.hpp"
 
-namespace myslam {
+namespace studyslam {
 
 class Frame;
 class MapPoint {
@@ -34,6 +34,6 @@ class MapPoint {
                                          const Vector3d& norm_,
                                          const Mat& descriptor, Frame* frame);
 };
-}  // namespace myslam
+}  // namespace studyslam
 
 #endif  // MAPPOINT_H

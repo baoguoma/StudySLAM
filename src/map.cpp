@@ -1,4 +1,4 @@
-#include "study/map.h"
+#include "studyslam/map.hpp"
 
 namespace studyslam {
 void Map::insertKeyFrame(Frame::sh_ptr sh_ptr_frame) {

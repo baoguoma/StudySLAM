@@ -9,22 +9,22 @@ using Eigen::Vector3d;
 // for Sophus
 #include <sophus/se3.h>
 #include <sophus/so3.h>
-using Sophus::SO3;
 using Sophus::SE3;
+using Sophus::SO3;
 
 // for cv
 #include <opencv2/core/core.hpp>
 using cv::Mat;
 
-// std 
-#include <vector>
-#include <list>
-#include <memory>
-#include <string>
+// std
 #include <iostream>
-#include <set>
-#include <unordered_map>
+#include <list>
 #include <map>
+#include <memory>
+#include <set>
+#include <string>
+#include <unordered_map>
+#include <vector>
 
-using namespace std; 
+using namespace std;
 #endif

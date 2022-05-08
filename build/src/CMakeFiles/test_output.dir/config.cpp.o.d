@@ -1,7 +1,7 @@
-src/CMakeFiles/test_output.dir/camera.cpp.o: \
- /home/utsa118166/Documents/SLAM/StudySLAM/src/camera.cpp \
+src/CMakeFiles/test_output.dir/config.cpp.o: \
+ /home/utsa118166/Documents/SLAM/StudySLAM/src/config.cpp \
  /usr/include/stdc-predef.h \
- /home/utsa118166/Documents/SLAM/StudySLAM/include/studyslam/camera.hpp \
+ /home/utsa118166/Documents/SLAM/StudySLAM/include/studyslam/config.hpp \
  /home/utsa118166/Documents/SLAM/StudySLAM/include/studyslam/common_include.hpp \
  /usr/include/eigen3/Eigen/Core \
  /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h \
@@ -387,5 +387,4 @@ src/CMakeFiles/test_output.dir/camera.cpp.o: \
  /usr/include/c++/7/bits/stl_multiset.h /usr/include/c++/7/unordered_map \
  /usr/include/c++/7/bits/hashtable.h \
  /usr/include/c++/7/bits/hashtable_policy.h \
- /usr/include/c++/7/bits/unordered_map.h \
- /home/utsa118166/Documents/SLAM/StudySLAM/include/studyslam/config.hpp
+ /usr/include/c++/7/bits/unordered_map.h

@@ -202,6 +202,30 @@ frame.cpp.s:
 	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/frame.cpp.s
 .PHONY : frame.cpp.s
 
+map.o: map.cpp.o
+.PHONY : map.o
+
+# target to build an object file
+map.cpp.o:
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/map.cpp.o
+.PHONY : map.cpp.o
+
+map.i: map.cpp.i
+.PHONY : map.i
+
+# target to preprocess a source file
+map.cpp.i:
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/map.cpp.i
+.PHONY : map.cpp.i
+
+map.s: map.cpp.s
+.PHONY : map.s
+
+# target to generate assembly for a file
+map.cpp.s:
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/map.cpp.s
+.PHONY : map.cpp.s
+
 test.o: test.cpp.o
 .PHONY : test.o
 
@@ -226,6 +250,30 @@ test.cpp.s:
 	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/test.cpp.s
 .PHONY : test.cpp.s
 
+visual_odometry.o: visual_odometry.cpp.o
+.PHONY : visual_odometry.o
+
+# target to build an object file
+visual_odometry.cpp.o:
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/visual_odometry.cpp.o
+.PHONY : visual_odometry.cpp.o
+
+visual_odometry.i: visual_odometry.cpp.i
+.PHONY : visual_odometry.i
+
+# target to preprocess a source file
+visual_odometry.cpp.i:
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/visual_odometry.cpp.i
+.PHONY : visual_odometry.cpp.i
+
+visual_odometry.s: visual_odometry.cpp.s
+.PHONY : visual_odometry.s
+
+# target to generate assembly for a file
+visual_odometry.cpp.s:
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_output.dir/build.make src/CMakeFiles/test_output.dir/visual_odometry.cpp.s
+.PHONY : visual_odometry.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -244,9 +292,15 @@ help:
 	@echo "... frame.o"
 	@echo "... frame.i"
 	@echo "... frame.s"
+	@echo "... map.o"
+	@echo "... map.i"
+	@echo "... map.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
+	@echo "... visual_odometry.o"
+	@echo "... visual_odometry.i"
+	@echo "... visual_odometry.s"
 .PHONY : help
 
 

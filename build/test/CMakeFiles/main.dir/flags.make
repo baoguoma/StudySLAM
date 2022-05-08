@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/usr/include/eigen3 -I/home/utsa118166/Documents/SLAM/Sophus -I/home/utsa118166/Documents/SLAM/StudySLAM/include -isystem /usr/local/include/opencv4
 
-CXX_FLAGS = -std=c++11 -g
+CXX_FLAGS = -std=c++14 -g
 

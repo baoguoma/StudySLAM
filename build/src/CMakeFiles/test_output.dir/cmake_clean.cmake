@@ -7,8 +7,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_output.dir/config.cpp.o.d"
   "CMakeFiles/test_output.dir/frame.cpp.o"
   "CMakeFiles/test_output.dir/frame.cpp.o.d"
+  "CMakeFiles/test_output.dir/map.cpp.o"
+  "CMakeFiles/test_output.dir/map.cpp.o.d"
   "CMakeFiles/test_output.dir/test.cpp.o"
   "CMakeFiles/test_output.dir/test.cpp.o.d"
+  "CMakeFiles/test_output.dir/visual_odometry.cpp.o"
+  "CMakeFiles/test_output.dir/visual_odometry.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

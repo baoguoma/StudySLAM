@@ -1,4 +1,4 @@
-#include "myslam/visual_odometry.h"
+#include "studyslam/visual_odometry.hpp"
 
 #include <algorithm>
 #include <boost/timer.hpp>
@@ -6,8 +6,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "myslam/config.h"
-#include "myslam/g2o_types.h"
+#include "studyslam/config.hpp"
+#include "studyslam/g2o_types.hpp"
 
 namespace studyslam {
 VisualOdometry::VisualOdometry()
@@ -88,6 +88,44 @@ void VisualOdometry::computeDescriptors() {
   boost::timer timer;
   orb_->compute(curr_->color_, keypoints_curr_, descriptors_curr_);
   cout << "descriptor computation cost time: " << timer.elapsed() << endl;
+}
+
+void VisualOdometry::featureMatching() {
+  boost::timer timer;
+  vector<cv::DMatch> matches;
+  // select the candidates in map
+  Mat desp_map;
+  vector<MapPoint::Ptr> candidate;
+  for (auto& allpoints : map_->map_points_) {
+    MapPoint::Ptr& p = allpoints.second;
+    // check if p in curr frame image
+    if (curr_->isInFrame(p->pos_)) {
+      // add to candidate
+      p->visible_times_++;
+      candidate.push_back(p);
+      desp_map.push_back(p->descriptor_);
+    }
+  }
+
+  matcher_flann_.match(desp_map, descriptors_curr_, matches);
+  // select the best matches
+  float min_dis =
+      std::min_element(matches.begin(), matches.end(),
+                       [](const cv::DMatch& m1, const cv::DMatch& m2) {
+                         return m1.distance < m2.distance;
+                       })
+          ->distance;
+
+  match_3dpts_.clear();
+  match_2dkp_index_.clear();
+  for (cv::DMatch& m : matches) {
+    if (m.distance < max<float>(min_dis * match_ratio_, 30.0)) {
+      match_3dpts_.push_back(candidate[m.queryIdx]);
+      match_2dkp_index_.push_back(m.trainIdx);
+    }
+  }
+  cout << "good matches: " << match_3dpts_.size() << endl;
+  cout << "match cost time: " << timer.elapsed() << endl;
 }
 
 }  // namespace studyslam

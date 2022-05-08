@@ -6,5 +6,5 @@ CXX_DEFINES = -Dtest_output_EXPORTS
 
 CXX_INCLUDES = -I/usr/local/include/opencv4 -I/usr/include/eigen3 -I/home/utsa118166/Documents/SLAM/Sophus -I/home/utsa118166/Documents/SLAM/StudySLAM/include
 
-CXX_FLAGS = -std=c++11 -g -fPIC
+CXX_FLAGS = -std=c++14 -g -fPIC
 

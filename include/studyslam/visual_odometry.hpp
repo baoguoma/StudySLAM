@@ -3,8 +3,8 @@
 
 #include <opencv2/features2d/features2d.hpp>
 
-#include "myslam/common_include.h"
-#include "myslam/map.h"
+#include "studyslam/common_include.hpp"
+#include "studyslam/map.hpp"
 
 namespace studyslam {
 class VisualOdometry {

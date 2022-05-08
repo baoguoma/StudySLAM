@@ -1,13 +1,13 @@
 #include "studyslam/frame.hpp"
 
-namespace {
+namespace studyslam {
 Frame::Frame()
     : frame_id_(-1),
       frame_time_stamp_(-1),
       sh_ptr_camera_(nullptr),
       is_key_frame_(false) {}
 
-Frame::Frame(long id, double time_stamp, SE3 T_c_w, Camera::Ptr camera,
+Frame::Frame(long id, double time_stamp, SE3 T_c_w, Camera::sh_ptr camera,
              Mat color, Mat depth)
     : id_(id),
       time_stamp_(time_stamp),
@@ -28,7 +28,7 @@ Frame::sh_ptr Frame::createFrame() {
 double Frame::findDepth(const cv::KeyPoint& kp) {
   int x = cvRound(kp.pt.x);
   int y = cvRound(kp.pt.y);
-  ushort d = depth_.ptr<ushort>(y)[x];
+  ushort d = mat_depth_.ptr<ushort>(y)[x];
   if (d != 0) {
     return double(d) / sh_ptr_camera_->depth_scale_;
   } else {
@@ -36,7 +36,7 @@ double Frame::findDepth(const cv::KeyPoint& kp) {
     int dx[4] = {-1, 0, 1, 0};
     int dy[4] = {0, -1, 0, 1};
     for (int i = 0; i < 4; i++) {
-      d = depth_.ptr<ushort>(y + dy[i])[x + dx[i]];
+      d = mat_depth_.ptr<ushort>(y + dy[i])[x + dx[i]];
       if (d != 0) {
         return double(d) / sh_ptr_camera_->depth_scale_;
       }
@@ -58,4 +58,4 @@ bool Frame::isInFrame(const Vector3d& pt_world) {
   return pixel(0, 0) > 0 && pixel(1, 0) > 0 && pixel(0, 0) < mat_color_.cols &&
          pixel(1, 0) < mat_color_.rows;
 }
-}  // namespace
+}  // namespace studyslam

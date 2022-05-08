@@ -1,8 +1,8 @@
 #ifndef FRAME_HEAD
 #define FRAME_HEAD
 
-#include "studyslam/camera.h"
-#include "studyslam/common_include.h"
+#include "studyslam/camera.hpp"
+#include "studyslam/common_include.hpp"
 
 namespace studyslam {
 class MapPoint;
@@ -19,10 +19,10 @@ class Frame {
  public:  // data members
   Frame();
   Frame(long id, double time_stamp = 0, SE3 T_c_w = SE3(),
-        Camera::Ptr camera = nullptr, Mat color = Mat(), Mat depth = Mat());
+        Camera::sh_ptr camera = nullptr, Mat color = Mat(), Mat depth = Mat());
   ~Frame();
 
-  static Frame::Ptr createFrame();
+  static Frame::sh_ptr createFrame();
 
   // find the depth in depth map
   double findDepth(const cv::KeyPoint& kp);

@@ -111,10 +111,24 @@ src/CMakeFiles/test_output.dir/frame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_output.dir/frame.cpp.s"
 	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/utsa118166/Documents/SLAM/StudySLAM/src/frame.cpp -o CMakeFiles/test_output.dir/frame.cpp.s
 
+src/CMakeFiles/test_output.dir/map.cpp.o: src/CMakeFiles/test_output.dir/flags.make
+src/CMakeFiles/test_output.dir/map.cpp.o: ../src/map.cpp
+src/CMakeFiles/test_output.dir/map.cpp.o: src/CMakeFiles/test_output.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/utsa118166/Documents/SLAM/StudySLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/test_output.dir/map.cpp.o"
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/test_output.dir/map.cpp.o -MF CMakeFiles/test_output.dir/map.cpp.o.d -o CMakeFiles/test_output.dir/map.cpp.o -c /home/utsa118166/Documents/SLAM/StudySLAM/src/map.cpp
+
+src/CMakeFiles/test_output.dir/map.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_output.dir/map.cpp.i"
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/utsa118166/Documents/SLAM/StudySLAM/src/map.cpp > CMakeFiles/test_output.dir/map.cpp.i
+
+src/CMakeFiles/test_output.dir/map.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_output.dir/map.cpp.s"
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/utsa118166/Documents/SLAM/StudySLAM/src/map.cpp -o CMakeFiles/test_output.dir/map.cpp.s
+
 src/CMakeFiles/test_output.dir/test.cpp.o: src/CMakeFiles/test_output.dir/flags.make
 src/CMakeFiles/test_output.dir/test.cpp.o: ../src/test.cpp
 src/CMakeFiles/test_output.dir/test.cpp.o: src/CMakeFiles/test_output.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/utsa118166/Documents/SLAM/StudySLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/test_output.dir/test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/utsa118166/Documents/SLAM/StudySLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/test_output.dir/test.cpp.o"
 	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/test_output.dir/test.cpp.o -MF CMakeFiles/test_output.dir/test.cpp.o.d -o CMakeFiles/test_output.dir/test.cpp.o -c /home/utsa118166/Documents/SLAM/StudySLAM/src/test.cpp
 
 src/CMakeFiles/test_output.dir/test.cpp.i: cmake_force
@@ -125,12 +139,28 @@ src/CMakeFiles/test_output.dir/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_output.dir/test.cpp.s"
 	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/utsa118166/Documents/SLAM/StudySLAM/src/test.cpp -o CMakeFiles/test_output.dir/test.cpp.s
 
+src/CMakeFiles/test_output.dir/visual_odometry.cpp.o: src/CMakeFiles/test_output.dir/flags.make
+src/CMakeFiles/test_output.dir/visual_odometry.cpp.o: ../src/visual_odometry.cpp
+src/CMakeFiles/test_output.dir/visual_odometry.cpp.o: src/CMakeFiles/test_output.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/utsa118166/Documents/SLAM/StudySLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/test_output.dir/visual_odometry.cpp.o"
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/test_output.dir/visual_odometry.cpp.o -MF CMakeFiles/test_output.dir/visual_odometry.cpp.o.d -o CMakeFiles/test_output.dir/visual_odometry.cpp.o -c /home/utsa118166/Documents/SLAM/StudySLAM/src/visual_odometry.cpp
+
+src/CMakeFiles/test_output.dir/visual_odometry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_output.dir/visual_odometry.cpp.i"
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/utsa118166/Documents/SLAM/StudySLAM/src/visual_odometry.cpp > CMakeFiles/test_output.dir/visual_odometry.cpp.i
+
+src/CMakeFiles/test_output.dir/visual_odometry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_output.dir/visual_odometry.cpp.s"
+	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/utsa118166/Documents/SLAM/StudySLAM/src/visual_odometry.cpp -o CMakeFiles/test_output.dir/visual_odometry.cpp.s
+
 # Object files for target test_output
 test_output_OBJECTS = \
 "CMakeFiles/test_output.dir/camera.cpp.o" \
 "CMakeFiles/test_output.dir/config.cpp.o" \
 "CMakeFiles/test_output.dir/frame.cpp.o" \
-"CMakeFiles/test_output.dir/test.cpp.o"
+"CMakeFiles/test_output.dir/map.cpp.o" \
+"CMakeFiles/test_output.dir/test.cpp.o" \
+"CMakeFiles/test_output.dir/visual_odometry.cpp.o"
 
 # External object files for target test_output
 test_output_EXTERNAL_OBJECTS =
@@ -138,10 +168,12 @@ test_output_EXTERNAL_OBJECTS =
 ../lib/libtest_output.so: src/CMakeFiles/test_output.dir/camera.cpp.o
 ../lib/libtest_output.so: src/CMakeFiles/test_output.dir/config.cpp.o
 ../lib/libtest_output.so: src/CMakeFiles/test_output.dir/frame.cpp.o
+../lib/libtest_output.so: src/CMakeFiles/test_output.dir/map.cpp.o
 ../lib/libtest_output.so: src/CMakeFiles/test_output.dir/test.cpp.o
+../lib/libtest_output.so: src/CMakeFiles/test_output.dir/visual_odometry.cpp.o
 ../lib/libtest_output.so: src/CMakeFiles/test_output.dir/build.make
 ../lib/libtest_output.so: src/CMakeFiles/test_output.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/utsa118166/Documents/SLAM/StudySLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library ../../lib/libtest_output.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/utsa118166/Documents/SLAM/StudySLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library ../../lib/libtest_output.so"
 	cd /home/utsa118166/Documents/SLAM/StudySLAM/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_output.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -11,7 +11,7 @@ class Frame {
   typedef std::shared_ptr<Frame> sh_ptr;
   unsigned long frame_id_;        // id of this frame
   double frame_time_stamp_;       // time stamp of this frame
-  SE3 T_w2c;                      // transform from world to camera
+  SE3 T_w2c_;                     // transform from world to camera
   Camera::sh_ptr sh_ptr_camera_;  // camera model
   Mat mat_color_, mat_depth_;     // color and depth image;
   bool is_key_frame_;

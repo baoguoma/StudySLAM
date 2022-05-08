@@ -9,12 +9,12 @@ Frame::Frame()
 
 Frame::Frame(long id, double time_stamp, SE3 T_c_w, Camera::sh_ptr camera,
              Mat color, Mat depth)
-    : id_(id),
-      time_stamp_(time_stamp),
-      T_c_w_(T_c_w),
-      sh_pre_camera_(camera),
-      color_(color),
-      depth_(depth),
+    : frame_id_(id),
+      frame_time_stamp_(time_stamp),
+      T_w2c_(T_c_w),
+      sh_ptr_camera_(camera),
+      mat_color_(color),
+      mat_depth_(depth),
       is_key_frame_(false) {}
 
 Frame::~Frame() {}
@@ -45,9 +45,9 @@ double Frame::findDepth(const cv::KeyPoint& kp) {
   return -1.0;
 }
 
-void Frame::setPose(const SE3& T_w2c) { T_w2c = T_w2c; }
+void Frame::setPose(const SE3& T_w2c) { T_w2c_ = T_w2c; }
 
-Vector3d Frame::getCamCenter() const { return T_w2c.inverse().translation(); }
+Vector3d Frame::getCamCenter() const { return T_w2c_.inverse().translation(); }
 
 bool Frame::isInFrame(const Vector3d& pt_world) {
   Vector3d p_cam = sh_ptr_camera_->world2camera(pt_world, T_w2c);

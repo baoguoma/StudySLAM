@@ -1,3 +1,4 @@
+# Look for csparse; note the difference in the directory specifications!
 FIND_PATH(CSPARSE_INCLUDE_DIR NAMES cs.h
   PATHS
   /usr/include/suitesparse

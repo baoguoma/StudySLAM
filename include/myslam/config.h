@@ -17,30 +17,33 @@
  *
  */
 
-#include "myslam/config.h"
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#include "myslam/common_include.h" 
 
 namespace myslam 
 {
+class Config
+{
+private:
+    static std::shared_ptr<Config> config_; 
+    cv::FileStorage file_;
     
-void Config::setParameterFile( const std::string& filename )
-{
-    if ( config_ == nullptr )
-        config_ = shared_ptr<Config>(new Config);
-    config_->file_ = cv::FileStorage( filename.c_str(), cv::FileStorage::READ );
-    if ( config_->file_.isOpened() == false )
+    Config () {} // private constructor makes a singleton
+public:
+    ~Config();  // close the file when deconstructing 
+    
+    // set a new config file 
+    static void setParameterFile( const std::string& filename ); 
+    
+    // access the parameter values
+    template< typename T >
+    static T get( const std::string& key )
     {
-        std::cerr<<"parameter file "<<filename<<" does not exist."<<std::endl;
-        config_->file_.release();
-        return;
+        return T( Config::config_->file_[key] );
     }
+};
 }
 
-Config::~Config()
-{
-    if ( file_.isOpened() )
-        file_.release();
-}
-
-shared_ptr<Config> Config::config_ = nullptr;
-
-}
+#endif // CONFIG_H

@@ -17,30 +17,27 @@
  *
  */
 
-#include "myslam/config.h"
+#ifndef MAP_H
+#define MAP_H
 
-namespace myslam 
+#include "myslam/common_include.h"
+#include "myslam/frame.h"
+#include "myslam/mappoint.h"
+
+namespace myslam
 {
+class Map
+{
+public:
+    typedef shared_ptr<Map> Ptr;
+    unordered_map<unsigned long, MapPoint::Ptr >  map_points_;        // all landmarks
+    unordered_map<unsigned long, Frame::Ptr >     keyframes_;         // all key-frames
+
+    Map() {}
     
-void Config::setParameterFile( const std::string& filename )
-{
-    if ( config_ == nullptr )
-        config_ = shared_ptr<Config>(new Config);
-    config_->file_ = cv::FileStorage( filename.c_str(), cv::FileStorage::READ );
-    if ( config_->file_.isOpened() == false )
-    {
-        std::cerr<<"parameter file "<<filename<<" does not exist."<<std::endl;
-        config_->file_.release();
-        return;
-    }
+    void insertKeyFrame( Frame::Ptr frame );
+    void insertMapPoint( MapPoint::Ptr map_point );
+};
 }
 
-Config::~Config()
-{
-    if ( file_.isOpened() )
-        file_.release();
-}
-
-shared_ptr<Config> Config::config_ = nullptr;
-
-}
+#endif // MAP_H

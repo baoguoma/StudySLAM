@@ -1,3 +1,2 @@
-add_executable(main main.cpp)
-target_link_libraries(main test_output)
-target_link_libraries(main ${THIRD_PARTY_LIBS})
+add_executable( run_vo run_vo.cpp )
+target_link_libraries( run_vo myslam )

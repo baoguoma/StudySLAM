@@ -20,10 +20,10 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include "myslam/common_include.h"
-#include "myslam/camera.h"
+#include "studyslam/common_include.h"
+#include "studyslam/camera.h"
 
-namespace myslam 
+namespace studyslam 
 {
     
 // forward declare 

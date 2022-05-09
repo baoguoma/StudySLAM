@@ -20,9 +20,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "myslam/common_include.h"
+#include "studyslam/common_include.h"
 
-namespace myslam
+namespace studyslam
 {
 
 // Pinhole RGBD camera model

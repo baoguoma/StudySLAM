@@ -20,9 +20,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include "myslam/common_include.h" 
+#include "studyslam/common_include.h" 
 
-namespace myslam 
+namespace studyslam 
 {
 class Config
 {

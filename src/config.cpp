@@ -17,9 +17,9 @@
  *
  */
 
-#include "myslam/config.h"
+#include "studyslam/config.h"
 
-namespace myslam 
+namespace studyslam 
 {
     
 void Config::setParameterFile( const std::string& filename )

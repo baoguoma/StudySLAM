@@ -1,6 +1,6 @@
-#include "myslam/g2o_types.h"
+#include "studyslam/g2o_types.h"
 
-namespace myslam
+namespace studyslam
 {
 void EdgeProjectXYZRGBD::computeError()
 {

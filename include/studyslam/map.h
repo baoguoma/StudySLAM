@@ -20,11 +20,11 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "myslam/common_include.h"
-#include "myslam/frame.h"
-#include "myslam/mappoint.h"
+#include "studyslam/common_include.h"
+#include "studyslam/frame.h"
+#include "studyslam/mappoint.h"
 
-namespace myslam
+namespace studyslam
 {
 class Map
 {

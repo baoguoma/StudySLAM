@@ -17,9 +17,9 @@
  *
  */
 
-#include "myslam/map.h"
+#include "studyslam/map.h"
 
-namespace myslam
+namespace studyslam
 {
 
 void Map::insertKeyFrame ( Frame::Ptr frame )

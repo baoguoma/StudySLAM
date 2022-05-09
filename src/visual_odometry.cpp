@@ -23,11 +23,11 @@
 #include <algorithm>
 #include <boost/timer.hpp>
 
-#include "myslam/config.h"
-#include "myslam/visual_odometry.h"
-#include "myslam/g2o_types.h"
+#include "studyslam/config.h"
+#include "studyslam/visual_odometry.h"
+#include "studyslam/g2o_types.h"
 
-namespace myslam
+namespace studyslam
 {
 
 VisualOdometry::VisualOdometry() :

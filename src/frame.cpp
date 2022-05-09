@@ -17,9 +17,9 @@
  *
  */
 
-#include "myslam/frame.h"
+#include "studyslam/frame.h"
 
-namespace myslam
+namespace studyslam
 {
 Frame::Frame()
 : id_(-1), time_stamp_(-1), camera_(nullptr), is_key_frame_(false)

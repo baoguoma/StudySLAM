@@ -17,10 +17,10 @@
  *
  */
 
-#include "myslam/camera.h"
-#include <myslam/config.h>
+#include "studyslam/camera.h"
+#include <studyslam/config.h>
 
-namespace myslam
+namespace studyslam
 {
     
 Camera::Camera()

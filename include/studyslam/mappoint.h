@@ -20,9 +20,9 @@
 #ifndef MAPPOINT_H
 #define MAPPOINT_H
 
-#include "myslam/common_include.h"
+#include "studyslam/common_include.h"
 
-namespace myslam
+namespace studyslam
 {
     
 class Frame;

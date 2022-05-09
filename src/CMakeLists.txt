@@ -1,13 +1,7 @@
-add_library( myslam SHARED
-    frame.cpp
-    mappoint.cpp
-    map.cpp
-    camera.cpp
-    config.cpp
-    g2o_types.cpp
-    visual_odometry.cpp
-)
+AUX_SOURCE_DIRECTORY(. CPP_FILES)
 
-target_link_libraries( myslam
+add_library( studyslam SHARED ${CPP_FILES})
+
+target_link_libraries( studyslam
     ${THIRD_PARTY_LIBS}
 )

@@ -17,10 +17,10 @@
  *
  */
 
-#include "myslam/common_include.h"
-#include "myslam/mappoint.h"
+#include "studyslam/common_include.h"
+#include "studyslam/mappoint.h"
 
-namespace myslam
+namespace studyslam
 {
 
 MapPoint::MapPoint()

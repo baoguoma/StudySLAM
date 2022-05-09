@@ -22,8 +22,8 @@ class VisualOdometry {
   vector<cv::KeyPoint> vec_keypoints_curr_;  // keypoints in current frame
   Mat mat_descriptors_curr_;                 // descriptor in current fram
 
-  cv::FlannBasedMatcher matcher_flann_;    // flann matcher
-  vector<MapPoint::Ptr> vec_match_3dpts_;  // matched 3d points
+  cv::FlannBasedMatcher matcher_flann_;       // flann matcher
+  vector<MapPoint::sh_ptr> vec_match_3dpts_;  // matched 3d points
   vector<int> vec_match_2dkp_index_;  // matched 2d pixels (index of kp_curr)
 
   SE3 T_w2c_estimated_;  // the estimated pose of current frame
@@ -44,7 +44,7 @@ class VisualOdometry {
   VisualOdometry();
   ~VisualOdometry();
 
-  bool addFrame(Frame::Ptr sh_ptr_frame);
+  bool addFrame(Frame::sh_ptr sh_ptr_frame);
 
  protected:
   // inner operation
@@ -59,7 +59,7 @@ class VisualOdometry {
   bool checkEstimatedPose();
   bool checkKeyFrame();
 
-  double getViewAngle(Frame::Ptr frame, MapPoint::Ptr point);
+  double getViewAngle(Frame::sh_ptr frame, MapPoint::sh_ptr point);
 };
 }  // namespace studyslam
 

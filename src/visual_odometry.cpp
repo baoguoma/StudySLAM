@@ -12,9 +12,9 @@
 namespace studyslam {
 VisualOdometry::VisualOdometry()
     : state_(INITIALIZING),
-      ref_(nullptr),
-      curr_(nullptr),
-      map_(new Map),
+      sh_ptr_ref_(nullptr),
+      sh_ptr_curr_(nullptr),
+      sh_ptr_map_(new Map),
       num_lost_(0),
       num_inliers_(0),
       matcher_flann_(new cv::flann::LshIndexParams(5, 10, 2)) {
@@ -32,11 +32,9 @@ VisualOdometry::VisualOdometry()
 
 VisualOdometry::~VisualOdometry() {}
 
-visual_odometry::~visual_odometry() {}
-
-bool VisualOdometry::addFrame(Frame::Ptr frame) {
+bool VisualOdometry::addFrame(Frame::sh_ptr frame) {
   switch (state_) {
-    case IINITIALIZING: {
+    case INITIALIZING: {
       state_ = OK;
       sh_ptr_curr_ = sh_ptr_ref_ = frame;
       extractKeyPoints();
@@ -46,14 +44,14 @@ bool VisualOdometry::addFrame(Frame::Ptr frame) {
     }
     case OK: {
       sh_ptr_curr_ = frame;
-      sh_ptr_curr_->T_w2c_ = ref_->T_w2c_;
+      sh_ptr_curr_->T_w2c_ = sh_ptr_ref_->T_w2c_;
       extractKeyPoints();
       computeDescriptors();
       featureMatching();
       poseEstimationPnP();
       if (checkEstimatedPose() == true)  // a good estimation
       {
-        curr_->T_c_w_ = T_c_w_estimated_;
+        sh_ptr_curr_->T_w2c_ = T_w2c_estimated_;
         optimizeMap();
         num_lost_ = 0;
         if (checkKeyFrame() == true)  // is a key-frame
@@ -80,13 +78,14 @@ bool VisualOdometry::addFrame(Frame::Ptr frame) {
 
 void VisualOdometry::extractKeyPoints() {
   boost::timer timer;
-  orb_->detect(curr_->color_, keypoints_curr_);
+  ptr_orb_->detect(sh_ptr_curr_->mat_color_, vec_keypoints_curr_);
   cout << "extract keypoints cost time: " << timer.elapsed() << endl;
 }
 
 void VisualOdometry::computeDescriptors() {
   boost::timer timer;
-  orb_->compute(curr_->color_, keypoints_curr_, descriptors_curr_);
+  ptr_orb_->compute(sh_ptr_curr_->mat_color_, vec_keypoints_curr_,
+                    mat_descriptors_curr_);
   cout << "descriptor computation cost time: " << timer.elapsed() << endl;
 }
 
@@ -95,11 +94,11 @@ void VisualOdometry::featureMatching() {
   vector<cv::DMatch> matches;
   // select the candidates in map
   Mat desp_map;
-  vector<MapPoint::Ptr> candidate;
-  for (auto& allpoints : map_->map_points_) {
-    MapPoint::Ptr& p = allpoints.second;
+  vector<MapPoint::sh_ptr> candidate;
+  for (auto& allpoints : sh_ptr_map_->map_points_) {
+    MapPoint::sh_ptr& p = allpoints.second;
     // check if p in curr frame image
-    if (curr_->isInFrame(p->pos_)) {
+    if (sh_ptr_curr_->isInFrame(p->pos_)) {
       // add to candidate
       p->visible_times_++;
       candidate.push_back(p);
@@ -107,7 +106,7 @@ void VisualOdometry::featureMatching() {
     }
   }
 
-  matcher_flann_.match(desp_map, descriptors_curr_, matches);
+  matcher_flann_.match(desp_map, mat_descriptors_curr_, matches);
   // select the best matches
   float min_dis =
       std::min_element(matches.begin(), matches.end(),
@@ -116,15 +115,15 @@ void VisualOdometry::featureMatching() {
                        })
           ->distance;
 
-  match_3dpts_.clear();
-  match_2dkp_index_.clear();
+  vec_match_3dpts_.clear();
+  vec_match_2dkp_index_.clear();
   for (cv::DMatch& m : matches) {
     if (m.distance < max<float>(min_dis * match_ratio_, 30.0)) {
-      match_3dpts_.push_back(candidate[m.queryIdx]);
-      match_2dkp_index_.push_back(m.trainIdx);
+      vec_match_3dpts_.push_back(candidate[m.queryIdx]);
+      vec_match_2dkp_index_.push_back(m.trainIdx);
     }
   }
-  cout << "good matches: " << match_3dpts_.size() << endl;
+  cout << "good matches: " << vec_match_3dpts_.size() << endl;
   cout << "match cost time: " << timer.elapsed() << endl;
 }
 

@@ -101,7 +101,7 @@ int main ( int argc, char** argv )
         }
 
         cv::imshow ( "image", img_show );
-        cv::waitKey ( 1 );
+        cv::waitKey ( 100 );
         vis.setWidgetPose ( "Camera", M );
         vis.spinOnce ( 1, false );
         cout<<endl;
